@@ -1,0 +1,15 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "admin, frontend and mobile templates",
+  "main": "admin.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nitin",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.8.1",
+    "inert": "^5.1.2"
+  }
+}
