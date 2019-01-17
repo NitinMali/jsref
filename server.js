@@ -31,6 +31,24 @@ const init = async () => {
         }
     });
 
+    server.route({
+        method: 'GET',
+        path: '/home',
+        handler: (request, h) => {
+
+            return h.file('./src/home.html');
+        }
+    });
+
+    server.route({
+        method: 'GET',
+        path: '/profile',
+        handler: (request, h) => {
+
+            return h.file('./src/profile.html');
+        }
+    });
+
     await server.start({
         routes: {
             files: {

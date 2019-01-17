@@ -1,0 +1,63 @@
+.user-profile {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    position: relative;
+    top: 98%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color:#000
+}
+
+.user-profile-image{
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
+}
+
+.user-profile-follow{
+	float: right;
+	width: 80px;
+	padding-top:10px;
+	text-align: right;
+	color: #999;
+}
+
+.tagline {
+    font-size: 15px;
+    color: #999;
+    letter-spacing: .6px;
+    margin-left: 60px
+}
+
+.category {
+    font-weight:bold;
+    color: #262626;
+}
+.user-stats {
+    margin-left: 60px
+}
+
+.user-stats span {
+    font-size: 15px;
+    color: #999;
+    letter-spacing: .6px;
+    margin-right: 10px
+}
+
+.user-profile-title{
+	margin-left:20px;
+	font-weight:bold;
+    color: #262626;
+    font-size:40px;
+}
+
+.overflow-visible {
+    overflow: visible !important;
+}
+
+.height-75p {
+    height: 45% !important;
+}

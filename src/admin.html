@@ -17,10 +17,16 @@
         <script src="js/html5shiv.min.js"></script>
     <![endif]-->
 
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <!--<![endif]-->
+    
+
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" 
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
@@ -76,6 +82,46 @@
                 To use this layout, you can just copy paste the HTML, along with the CSS in <a href="/css/layouts/side-menu.css" alt="Side Menu CSS">side-menu.css</a>, and 
                 the JavaScript in <a href="/js/ui.js">ui.js</a>. The JS file uses vanilla JavaScript to simply toggle an <code>active</code> class that makes the menu responsive.
             </p>
+
+            <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+
+            <div class="pure-g">
+                <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+                    <form class="pure-form pure-form-stacked">
+                        <fieldset>
+
+                            <label for="name">Your Name</label>
+                            <input id="name" type="text" placeholder="Your Name">
+
+
+                            <label for="email">Your Email</label>
+                            <input id="email" type="email" placeholder="Your Email">
+
+                            <label for="password">Your Password</label>
+                            <input id="password" type="password" placeholder="Your Password">
+
+                            <button type="submit" class="pure-button">Sign Up</button>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                    <h4>Contact Us</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.
+                    </p>
+
+                    <h4>More Information</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
