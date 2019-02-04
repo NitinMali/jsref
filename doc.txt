@@ -1,0 +1,20 @@
+04.02.2019
+
+						user db: userid, account block [full, partial], what features are blocked, account_confirmed, created_on, 
+						user on signup: username, name, pwd
+						user on profile: intro, profile pic (should be moved to signup), location, profile cover, dob, travel interest (op: beach, hills), fb, twtr, insta links
+						user signup details: signed sys/device, signed location
+						user login details: last_login_datetime, last_login_location, last_login_device, last_login_logout
+						user_activity: what and when updated
+						user_preferences: language, 
+						user_bookmarks
+						
+						1-n, n-n, mapping tables not required in mongodb. Everything is object so keep data in full set
+						
+						post: post_id, title, tagline,media_array, text, tags_array, createdon, updated_on, travel_details, date from - to, allow_comments
+							  location (autocomplete), searchable_fromdate, featured_fromdate, view_count, liked_count, bookmarked_count, comments_count
+							  
+						media: media_id, media_type, media_title, media_link, media_desc, media_location, media_date_time, tags_array, view_count, liked_count, bookmarked_count
+						tags: tag_id, title, desc, cover_image, created_user_id, created_on
+						
+						comments: comment_id, posteddon, postedby, status(visible, hide, deletedbyuser, deletedbyadmin), parent_id, parent_type
