@@ -18,3 +18,5 @@
 						tags: tag_id, title, desc, cover_image, created_user_id, created_on
 						
 						comments: comment_id, posteddon, postedby, status(visible, hide, deletedbyuser, deletedbyadmin), parent_id, parent_type
+						
+						https://keon.io/mongodb-schema-design/
