@@ -1,22 +1,108 @@
 04.02.2019
+https://keon.io/mongodb-schema-design/
 
-						user db: userid, account block [full, partial], what features are blocked, account_confirmed, created_on, 
-						user on signup: username, name, pwd
-						user on profile: intro, profile pic (should be moved to signup), location, profile cover, dob, travel interest (op: beach, hills), fb, twtr, insta links
-						user signup details: signed sys/device, signed location
-						user login details: last_login_datetime, last_login_location, last_login_device, last_login_logout
-						user_activity: what and when updated
-						user_preferences: language, 
-						user_bookmarks
-						
-						1-n, n-n, mapping tables not required in mongodb. Everything is object so keep data in full set
-						
-						post: post_id, title, tagline,media_array, text, tags_array, createdon, updated_on, travel_details, date from - to, allow_comments
-							  location (autocomplete), searchable_fromdate, featured_fromdate, view_count, liked_count, bookmarked_count, comments_count
-							  
-						media: media_id, media_type, media_title, media_link, media_desc, media_location, media_date_time, tags_array, view_count, liked_count, bookmarked_count
-						tags: tag_id, title, desc, cover_image, created_user_id, created_on
-						
-						comments: comment_id, posteddon, postedby, status(visible, hide, deletedbyuser, deletedbyadmin), parent_id, parent_type
-						
-						https://keon.io/mongodb-schema-design/
+story_user {
+	user_id
+	user_username,
+	user_name,
+	user_emailid
+	user_pwd,
+	user_dob,
+	user_gender,
+	user_profile_pic
+	user_cover_img,
+	user_created_location
+	user_current_location,
+	user_language,
+	user_block: [enum: open, full, partial],
+	user_account_verified,
+	user_created_on,
+	user_travel_interest [enum: hill, beach...]
+	user_fb,
+	user_twt,
+	user_insta,
+	user_last_login_dt,
+	user_last_login_location,
+	user_last_login_device
+	user_last__profile_updated_dt
+}
+
+story_post {
+	post_id,
+	post_createdby_username,
+	post_type,
+	post_created_on
+	post_last_updated_on
+	post_datetime
+	post_title,
+	post_text
+	post_tags_array [tag1, tag2],
+	post_transit: { from, to, type }
+	post_allow_comments
+	post_location,
+	post_searchable_fromdate,
+	post_featured_fromdate,
+	post_media: [{
+		media_id {ex: post_id}, 
+		media_type, 
+		media_title, media_desc, 
+		media_tags_array, 
+		media_link, 
+		media_searchable_fromdate, 
+		media_featured_from, 
+		media_created_dt, 
+		media_updated_dt, 
+		media_location
+	}]
+}
+
+story_tags { 
+	tag_id, 
+	tag_title, 
+	tag_desc, 
+	tag_cover_image, 
+	tag_createdby_username, 
+	tag_created_on, 
+	tag_updated_on, 
+	tag_featured_from, 
+	tag_searchable_from 
+}
+
+story_actions {
+	action_id,
+	action_item_id,
+	action_item_type (enums:[post, media, tag, comment]),
+	action_performedby_username,
+	action_datatime,
+	action_type: [bookmarked, like]
+}
+
+story_comments {
+	comment_id, 
+	comment_posted_on, 
+	comment_postedby_username, 
+	comment_status (enums:[visible, hiddenbyuser, hiddenbyadmin, deletedbyuser, deletedbyadmin]), 
+	comment_parent_id, 
+	comment_parent_type (enums:[post, media, tag, comment])
+}
+
+
+Rough-----
+user db: userid, account block [full, partial], what features are blocked, account_confirmed, created_on, 
+user on signup: username, name, pwd
+user on profile: intro, profile pic (should be moved to signup), location, profile cover, dob, travel interest (op: beach, hills), fb, twtr, insta links
+user signup details: signed sys/device, signed location
+user login details: last_login_datetime, last_login_location, last_login_device, last_login_logout
+user_activity: what and when updated
+user_preferences: language, 
+user_bookmarks
+
+1-n, n-n, mapping tables not required in mongodb. Everything is object so keep data in full set
+
+post: post_id, title, tagline,media_array, text, tags_array, createdon, updated_on, travel_details, date from - to, allow_comments
+	  location (autocomplete), searchable_fromdate, featured_fromdate, view_count, liked_count, bookmarked_count, comments_count
+
+media: media_id, media_type, media_title, media_link, media_desc, media_location, media_date_time, tags_array, view_count, liked_count, bookmarked_count
+tags: tag_id, title, desc, cover_image, created_user_id, created_on
+
+comments: comment_id, posteddon, postedby, status(visible, hide, deletedbyuser, deletedbyadmin), parent_id, parent_type
