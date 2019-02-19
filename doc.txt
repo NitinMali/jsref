@@ -1,51 +1,54 @@
 04.02.2019
 https://keon.io/mongodb-schema-design/
 
+story_account {
+	#account_id
+	account_username,
+	account_name,
+	account_emailid,
+	account_pwd,
+	account_login_token,
+	account_creation_dt,
+	account_creation_location,
+	account_last_login_dt,
+	account_last_login_location,
+	account_last_login_device,
+	account_last_updated_dt
+	account_status {enum object with timestamp: Deleted, Active, Verified, Blocked}
+}
+
 story_user {
-	user_id
-	user_username,
-	user_name,
-	user_emailid
-	user_pwd,
+	#user_account_id
 	user_dob,
 	user_gender,
 	user_profile_pic
 	user_cover_img,
-	user_created_location
 	user_current_location,
 	user_language,
-	user_block: [enum: open, full, partial],
-	user_account_verified,
-	user_created_on,
 	user_travel_interest [enum: hill, beach...]
-	user_fb,
-	user_twt,
-	user_insta,
-	user_last_login_dt,
-	user_last_login_location,
-	user_last_login_device
-	user_last__profile_updated_dt
+	user_social_links [enum: twtr, insta, fb],
+	user_last_updated_dt
 }
 
 story_post {
 	post_id,
-	post_createdby_username,
-	post_type,
+	#post_createdby_account_id,
+	post_type [enum: post, media],
 	post_created_on
-	post_last_updated_on
 	post_datetime
 	post_title,
 	post_text
-	post_tags_array [tag1, tag2],
-	post_transit: { from, to, type }
+	post_tags: [tag1, tag2],
+	post_transit: [{ transit_id, from, to, type:[bus,train,fly] }]
 	post_allow_comments
 	post_location,
 	post_searchable_fromdate,
 	post_featured_fromdate,
 	post_media: [{
 		media_id {ex: post_id}, 
-		media_type, 
-		media_title, media_desc, 
+		media_type [enum: video, photo], 
+		media_title, 
+		media_desc, 
 		media_tags_array, 
 		media_link, 
 		media_searchable_fromdate, 
@@ -53,7 +56,8 @@ story_post {
 		media_created_dt, 
 		media_updated_dt, 
 		media_location
-	}]
+	}],
+	post_last_updated_on
 }
 
 story_tags { 
@@ -61,7 +65,7 @@ story_tags {
 	tag_title, 
 	tag_desc, 
 	tag_cover_image, 
-	tag_createdby_username, 
+	#tag_createdby_account_id, 
 	tag_created_on, 
 	tag_updated_on, 
 	tag_featured_from, 
@@ -72,7 +76,7 @@ story_actions {
 	action_id,
 	action_item_id,
 	action_item_type (enums:[post, media, tag, comment]),
-	action_performedby_username,
+	#action_performedby_account_id,
 	action_datatime,
 	action_type: [bookmarked, like]
 }
