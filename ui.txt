@@ -10,6 +10,9 @@ Login
     Email / Username
     Pwd
 
+Forgot password / username
+    Email_id
+    
 Dashboard
     No. of followers
     No. of followings
@@ -23,8 +26,13 @@ Dashboard
     No. of image uploads
     
 Trip
-    Block with trip name, pic, date, posts count with sorting / filtering / pagination option
-    Button to create new trip
+    /trip-list
+        - Grid / Table with trip name, pic, date, posts count with sorting / filtering / pagination option
+        - Button to create new trip
+        
+        /post-list
+            - Table / Grid view with list of posts: post title, desc into.. arrange in order, last updated date, location, total media
+              with sorting / filtering / pagination option
     
     /create-trip
         Title
@@ -34,7 +42,47 @@ Trip
         Allow comments
         Category
     
+    /create-post
+        Title
+        Locations
+        Media Images / Video
+            Desc (160max)
+            Make this trip cover image
+        Text
+        
+        
 
-
+Category
+      /category-list
+            Title
+            Desc into..
+      
+      /create-category
+            Title
+            Desc
+            Cover_image
+            
+Profile
+      /profile-view & Edit
+            Name
+            Username
+            Email
+            DOB
+            Gender
+            Profile pic
+            Cover pic
+            Current location
+            Language preference
+            Travel interest
+            Socail links: FB, Twitter, Instagram
+      
+      /change-password
+            Current password
+            New password
+            
+            
+            
+            
+            
     
     
