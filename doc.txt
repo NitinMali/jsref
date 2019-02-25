@@ -25,7 +25,7 @@ story_user {
 	user_cover_img,
 	user_current_location,
 	user_language,
-	user_travel_interest [enum: hill, beach...]
+	user_travel_interest [enum: hill, beach, camping...]
 	user_social_links [enum: twtr, insta, fb],
 	user_last_updated_dt
 }
@@ -56,7 +56,6 @@ story_posts {
 	post_text
 	post_trip_ref_id,
 	post_location [{location_id, location_title, google_location_id, coordx, coordy, type, link}]
-	post_location,
 	post_searchable_fromdate,
 	post_featured_fromdate,
 	post_media: [{
@@ -71,6 +70,7 @@ story_posts {
 		media_created_dt, 
 		media_updated_dt, 
 		media_location
+		media_make_cover_image
 	}],
 	post_last_updated_on
 }
