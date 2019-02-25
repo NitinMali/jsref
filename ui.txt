@@ -1,0 +1,40 @@
+Signup
+      Name
+      Username
+      Email
+      Pwd
+      DOB
+      Gender
+
+Login
+    Email / Username
+    Pwd
+
+Dashboard
+    No. of followers
+    No. of followings
+    No. of trips in months, yrs, 
+    By categories
+    No. of posts
+    No. of days of travel
+    No. of comments
+    location covered world / continents / region / countries / cities
+    upcoming bridge holidays
+    No. of image uploads
+    
+Trip
+    Block with trip name, pic, date, posts count with sorting / filtering / pagination option
+    Button to create new trip
+    
+    /create-trip
+        Title
+        Desc
+        Trip start date / end date
+        Cover image
+        Allow comments
+        Category
+    
+
+
+    
+    
