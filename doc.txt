@@ -30,7 +30,23 @@ story_user {
 	user_last_updated_dt
 }
 
-story_post {
+story_trips {
+	trip_id, 
+	trip_title, 
+	trip_desc, 
+	trip_cover_image, 
+	#trip_createdby_account_id, 
+	trip_start_dt,
+	trip_end_dt, //empty for current running trip
+	trip_created_on, 
+	trip_updated_on, //Event if post under this trip gets updated
+	trip_featured_from, 
+	trip_searchable_from,
+	trip_allow_comments: Boolean,
+	trip_category_id [cat_id1, cat_id2]
+}
+
+story_posts {
 	post_id,
 	#post_createdby_account_id,
 	post_type [enum: post, media],
@@ -38,9 +54,8 @@ story_post {
 	post_datetime
 	post_title,
 	post_text
-	post_tags: [tag1, tag2],
-	post_transit: [{ transit_id, from, to, type:[bus,train,fly] }]
-	post_allow_comments
+	post_trip_ref_id,
+	post_location [{location_id, location_title, google_location_id, coordx, coordy, type, link}]
 	post_location,
 	post_searchable_fromdate,
 	post_featured_fromdate,
@@ -60,22 +75,22 @@ story_post {
 	post_last_updated_on
 }
 
-story_tags { 
-	tag_id, 
-	tag_title, 
-	tag_desc, 
-	tag_cover_image, 
-	#tag_createdby_account_id, 
-	tag_created_on, 
-	tag_updated_on, 
-	tag_featured_from, 
-	tag_searchable_from 
+story_categories { 
+	cat_id, 
+	cat_title, 
+	cat_desc, 
+	cat_cover_image, 
+	#cat_createdby_account_id, 
+	cat_created_on, 
+	cat_updated_on, 
+	cat_featured_from, 
+	cat_searchable_from 
 }
 
 story_actions {
 	action_id,
 	action_item_id,
-	action_item_type (enums:[post, media, tag, comment]),
+	action_item_type (enums:[trip, post, media, comment]),
 	#action_performedby_account_id,
 	action_datatime,
 	action_type: [bookmarked, like]
